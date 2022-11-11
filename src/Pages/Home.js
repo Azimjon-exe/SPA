@@ -1,5 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getAllCategories } from "../api";
+import CategoryList from "../components/CategoryList";
+import Loader from "../components/Loader";
 
 export default function Home() {
-  return <h1>hello from home</h1>;
+  const [catalog, setCatalog] = useState([]);
+  useEffect(() => {
+    getAllCategories().then((data) => {
+      setCatalog(data.categories);
+    });
+  }, []);
+  console.log(catalog);
+
+  return (
+    <>{!catalog.length ? <Loader /> : <CategoryList catalog={catalog} />}</>
+  );
 }

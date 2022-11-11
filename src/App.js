@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { Route, Switch } from "react-router-dom";
-import Movie from "./pages/Movie";
+import Category from "./pages/Category";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
-          <Route path="/movie/:id" component={Movie} />
+          <Route path="/category/:name" component={Category} />
           <Route component={NotFound} />
         </Switch>
       </main>
