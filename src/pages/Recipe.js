@@ -4,6 +4,7 @@ import { getMealById } from "../api";
 import Loader from "../components/Loader";
 
 const Recipe = () => {
+  const [showRecipe, setshowRecipe] = useState(false);
   const [recipe, setRecipe] = useState([]);
   const { id } = useParams();
   const { goBack } = useHistory();
@@ -43,26 +44,37 @@ const Recipe = () => {
             </h5>
           ) : null}
           <p>{strInstructions}</p>
-          <table>
-            <thead>
-              <tr>
-                <td>Ingredient</td>
-                <td>Measure</td>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.keys(recipe).map((key) => {
-                if (key.includes("Ingredient") && recipe[key]) {
-                  return (
-                    <tr>
-                      <td>{recipe[key]}</td>
-                      <td>{recipe[`strMeasure${key.slice(13)}`]}</td>
-                    </tr>
-                  );
-                }
-              })}
-            </tbody>
-          </table>
+          <button
+            className="btn"
+            onClick={() => {
+              setshowRecipe(!showRecipe);
+            }}
+          >
+            Show Recipe
+          </button>
+          {showRecipe ? (
+            <table>
+              <thead>
+                <tr>
+                  <td>Ingredient</td>
+                  <td>Measure</td>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.keys(recipe).map((key) => {
+                  if (key.includes("Ingredient") && recipe[key]) {
+                    return (
+                      <tr>
+                        <td>{recipe[key]}</td>
+                        <td>{recipe[`strMeasure${key.slice(13)}`]}</td>
+                      </tr>
+                    );
+                  }
+                })}
+              </tbody>
+            </table>
+          ) : null}
+
           {strYoutube ? (
             <>
               <h5>Video Recipe</h5>
