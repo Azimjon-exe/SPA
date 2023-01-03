@@ -5,9 +5,9 @@ const Header = () => {
   return (
     <>
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper" style={{ padding: "0 20px" }}>
           <a href="/" className="brand-logo">
-            Raect shop
+            Food recipe
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>

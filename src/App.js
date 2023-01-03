@@ -21,6 +21,7 @@ function App() {
           <Route path="/category/:name" component={Category} />
           <Route path="/meal/:id" component={Recipe} />
           <Route component={NotFound} />
+          32q1 `23q1`q1``1q1q1`1 q`q`q1`1
         </Switch>
       </main>
       <Footer />
